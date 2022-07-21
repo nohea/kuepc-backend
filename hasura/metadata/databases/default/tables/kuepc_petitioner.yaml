@@ -1,0 +1,19 @@
+table:
+  schema: kuepc
+  name: petitioner
+select_permissions:
+  - role: public
+    permission:
+      columns:
+        - pet_id
+        - family_name
+        - given_name
+        - prefix
+        - age
+        - page
+        - line
+        - island
+        - district
+        - gender
+        - create_timestamp
+      filter: {}

@@ -22,13 +22,13 @@ async function gqlRequest(query: string, variables: { [key: string]: any }, jwt_
 		});
 	}
 
-	console.log("gqlRequestHeaders: ", gqlRequestHeaders);
+	// console.log("gqlRequestHeaders: ", gqlRequestHeaders);
 
 	// select which endpoint
 	const client = graphqlClient;
 
 	// console.log("client.url: ", client.url);
-	console.log("process.env.HASURA_GRAPHQL_ENDPOINT: ", process.env.HASURA_GRAPHQL_ENDPOINT);
+	// console.log("process.env.HASURA_GRAPHQL_ENDPOINT: ", process.env.HASURA_GRAPHQL_ENDPOINT);
 
 	return await client.request(query, variables, gqlRequestHeaders);
 }

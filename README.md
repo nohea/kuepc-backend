@@ -6,11 +6,25 @@ Index dataset of signers of the Kūʻē Petition.
 
 # database schema
 
-TO DO
+```
+CREATE TABLE kuepc.petitioner (
+    pet_id integer NOT NULL,
+    family_name text NULL,
+    given_name text NULL,
+    prefix text NULL,
+    age text NULL,
+    page text NULL,
+    line text NULL,
+    island text NULL,
+    district text NULL,
+    gender text NULL,
+    create_timestamp timestamp(3) with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+```
 
 # Usage
 
-TO DO
+`npm run load ../kuepetition/Kue-Petition-All-Islands.csv `
 
 # load to hasura graphql database .env file entries
 
@@ -22,18 +36,51 @@ HASURA_GRAPHQL_ADMIN_SECRET=notmysecret
 # Hasura / graphql examples
 
 ```
+query get_petitioner_all($family_name:String!) {
+  kuepc_petitioner(where: {family_name: {_eq: $family_name}}) {
+    pet_id
+    family_name
+    given_name
+    prefix
+    gender
+    age
+    island
+    district
+    page
+    line
+    create_timestamp
+  }
+}
 ```
 
 parameters:
 
 ```
-
+{"family_name": "Kaililikeole"}
 ```
 
 result:
 
 ```
-
+{
+  "data": {
+    "kuepc_petitioner": [
+      {
+        "pet_id": 20276,
+        "family_name": "Kaililikeole",
+        "given_name": "W. L.",
+        "prefix": "",
+        "gender": "Men",
+        "age": "11",
+        "island": "Hawaii",
+        "district": "North Kohala",
+        "page": "119",
+        "line": "5",
+        "create_timestamp": "2022-07-21T23:12:54.779+00:00"
+      }
+    ]
+  }
+}
 ```
 
 ## Hasura + postgresql on docker

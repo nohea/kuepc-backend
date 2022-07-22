@@ -22,8 +22,8 @@ export async function insertPetitioner(pet: Petitioner, role: string, jwt_token:
     console.log("params: ", params);
 
     const query = gql`
-        mutation createPet($object: kuepc_petitioner_insert_input!) {
-            insert_kuepc_petitioner_one(object: $object) {
+        mutation createPet($object: petitioner_insert_input!) {
+            insert_petitioner_one(object: $object) {
                 given_name
                 family_name
                 prefix
@@ -52,7 +52,7 @@ export async function get_petitioner_by_pk(pet_id: number, role: string, jwt_tok
 
     const query = gql`
     query get_petitioner_by_pk($pet_id:Int!) {
-        kuepc_petitioner_by_pk(pet_id: $pet_id) {
+        petitioner_by_pk(pet_id: $pet_id) {
             pet_id
             given_name
             family_name

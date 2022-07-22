@@ -7,7 +7,7 @@ Index dataset of signers of the Kūʻē Petition.
 # database schema
 
 ```
-CREATE TABLE kuepc.petitioner (
+CREATE TABLE public.petitioner (
     pet_id integer NOT NULL,
     family_name text NULL,
     given_name text NULL,
@@ -24,7 +24,7 @@ CREATE TABLE kuepc.petitioner (
 
 # Usage
 
-`npm run load ../kuepetition/Kue-Petition-All-Islands.csv `
+`npm run load ../kuepetition/Kue-Petition-All-Islands.csv`
 
 # load to hasura graphql database .env file entries
 
@@ -37,7 +37,7 @@ HASURA_GRAPHQL_ADMIN_SECRET=notmysecret
 
 ```
 query get_petitioner_all($family_name:String!) {
-  kuepc_petitioner(where: {family_name: {_eq: $family_name}}) {
+  petitioner(where: {family_name: {_eq: $family_name}}) {
     pet_id
     family_name
     given_name

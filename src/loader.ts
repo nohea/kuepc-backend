@@ -1,5 +1,4 @@
 
-
 // const parse = await import("csv-parse").then((module) => module.parse);
 import { parse } from 'csv-parse/sync';
 
@@ -40,3 +39,4 @@ petitioners.forEach(async (record, index) => {
     console.log("insert pet rv: ", rv);
 
 });
+

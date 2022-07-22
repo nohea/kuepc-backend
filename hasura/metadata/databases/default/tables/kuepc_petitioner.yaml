@@ -17,3 +17,4 @@ select_permissions:
         - gender
         - create_timestamp
       filter: {}
+      limit: 500

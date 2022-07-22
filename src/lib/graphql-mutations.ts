@@ -3,6 +3,7 @@ import { Petitioner } from '../models/Petitioner.js';
 
 export async function insertPetitioner(pet: Petitioner, role: string, jwt_token: string) {
     console.log("insertPetitioner()");
+    // console.log(`-> insert new pet ${pet.family_name} ${pet.given_name}`);
 
     // if (!jwt_token) {
     //     return;

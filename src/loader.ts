@@ -1,8 +1,9 @@
 
 // const parse = await import("csv-parse").then((module) => module.parse);
 import { parse } from 'csv-parse/sync';
-
 import * as fs from "fs";
+import Bottleneck from "bottleneck";
+
 import { insertPetitioner } from './lib/graphql-mutations.js';
 import { Petitioner } from './models/Petitioner.js';
 
@@ -28,15 +29,31 @@ petitioners = parse(inputStr.trim(), {
 
 console.log("petitioners length: ", petitioners.length);
 
+const limiter = new Bottleneck({
+  minTime: 1100,
+  maxConcurrent: 1,
+});
+
 petitioners.forEach(async (record, index) => {
     console.log("record ", record);
 
     const pet = new Petitioner(record);
 
     // -> insert new pet 
-    console.log(`-> insert new pet ${pet.family_name} ${pet.given_name}`);
-    const rv = await insertPetitioner(pet, 'admin', '');
-    console.log("insert pet rv: ", rv);
+    // console.log(`-> insert new pet ${pet.family_name} ${pet.given_name}`);
+    // const rv = await insertPetitioner(pet, 'admin', '');
+    // console.log("insert pet rv: ", rv);
+
+    // https://github.com/SGrondin/bottleneck#readme
+    const wrapped = limiter.wrap(insertPetitioner);
+    const result = await wrapped(pet, 'admin', '');
 
 });
+
+async function fakeInsert(pet: any) {
+    // -> insert new pet 
+    console.log(`-> fake insert new pet ${pet.family_name} ${pet.given_name}`);
+    // const rv = await insertPetitioner(pet, 'admin', '');
+    // console.log("insert pet rv: ", rv);
+}
 

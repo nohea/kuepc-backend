@@ -1,3 +1,3 @@
 
-DROP TABLE IF EXISTS kuepc.petitioner;
-DROP SEQUENCE IF EXISTS kuepc.petitioner_pet_id_seq;
+DROP TABLE IF EXISTS public.petitioner;
+DROP SEQUENCE IF EXISTS public.petitioner_pet_id_seq;

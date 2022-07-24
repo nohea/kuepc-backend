@@ -3,6 +3,24 @@
 Index dataset of signers of the Kūʻē Petition. 
 
 - [Hasura](https://hasura.io/) setup w/PostgreSQL migrations
+- Node.js TypeScript example graphql query lookup by name. 
+
+# install
+
+Requires NodeJS v16+
+
+```
+git clone git@github.com:hawaiiansintech/kuepc-backend.git
+cd ./kuepc-backend
+npm install
+cp .env.example .env
+```
+
+Set the endpoint in .env
+`HASURA_GRAPHQL_ENDPOINT=https://{hostingprovider}/v1/graphql`
+
+try:
+`npm run name 'Aalona'`
 
 # database schema
 
@@ -255,9 +273,16 @@ hasura metadata --endpoint https://your.hasura.endpoint --admin-secret yoursecre
 hasura metadata --endpoint https://your.hasura.endpoint --admin-secret yoursecret apply
 ```
 
+## Other
 
-## generate 64 char string
-
-useful to make a new jwt secret
+generate 64 char string, useful to make a new jwt secret
 
 `< /dev/urandom tr -dc \_A-Z-a-z-0-9 | head -c${1:-64};echo;`
+
+# Notes
+
+the scanned pages are available online:
+- https://libweb.hawaii.edu//digicoll/annexation/petition.php
+
+The page numbers may not match. 
+

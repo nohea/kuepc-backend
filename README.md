@@ -1,9 +1,17 @@
 # kuepc-backend / Kūʻē Petition directory
 
-Index dataset of signers of the Kūʻē Petition. 
+Index dataset of signers of the Kūʻē Petition. ✊🏽📜
 
+Kūʻē Petition Continues is a hui who hand entered the 21k lines of the 1897 Anti-annexation petition / Kūʻē Petition
+
+We've received the data from their years of work. There is a Hasura/PostgreSQL backend app which parsed a CSV format and loaded it into a Hasura graphql engine.
+https://github.com/hawaiiansintech/kuepc-backend
+
+Now that its available, there could be a front-end lookup tool for querying it by name, etc. and returning page/island/district data. That data could be used to point to the actual pages of the petition. We still need a page number map to available images, but at least the island/district and line numbers are clear. 
+
+The data could also be used to create links in the genealogy interface to specific names on the Kūʻē petition.
 - [Hasura](https://hasura.io/) setup w/PostgreSQL migrations
-- Node.js TypeScript example graphql query lookup by name. 
+- [Node.js](https://nodejs.org/) [TypeScript](https://www.typescriptlang.org/) example graphql query lookup by name. 
 
 # install
 

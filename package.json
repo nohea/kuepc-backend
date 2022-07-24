@@ -7,6 +7,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "load": "npm run build && node -r dotenv/config ./dist/loader.js",
+    "name": "npm run build && node -r dotenv/config ./dist/name-search-test.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

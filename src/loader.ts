@@ -7,7 +7,7 @@ import Bottleneck from "bottleneck";
 import { insertPetitioner } from './lib/graphql-mutations.js';
 import { Petitioner } from './models/Petitioner.js';
 
-console.log("loader");
+console.log("kuepc loader");
 
 let inputfile = process.argv[2] || '';
 

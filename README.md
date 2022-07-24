@@ -83,6 +83,111 @@ result:
 }
 ```
 
+## graphql simple query example - command line
+
+This will take a single text parameter, and query the graphql endpoint, using a 
+query trying to exact match by given_name or family_name. 
+
+```
+npm run name "Alo"
+```
+
+result:
+```
+{
+  petitioner: [
+    {
+      age: '22',
+      district: 'Lahaina',
+      family_name: 'Alo',
+      gender: 'Women',
+      given_name: 'Maria',
+      island: 'Maui',
+      line: '14',
+      page: '177',
+      prefix: ''
+    },
+    {
+      age: '36',
+      district: 'Wailuku',
+      family_name: 'Alo',
+      gender: 'Women',
+      given_name: 'Keopuhiwa',
+      island: 'Maui',
+      line: '39',
+      page: '189',
+      prefix: ''
+    },
+    {
+      age: '15',
+      district: 'Lahaina',
+      family_name: 'Alo',
+      gender: 'Women',
+      given_name: 'Amoe',
+      island: 'Maui',
+      line: '5',
+      page: '179',
+      prefix: 'Miss'
+    },
+    {
+      age: '41',
+      district: 'Lahaina',
+      family_name: 'Alo',
+      gender: 'Women',
+      given_name: 'Kapela',
+      island: 'Maui',
+      line: '11',
+      page: '177',
+      prefix: 'Mrs'
+    },
+    {
+      age: '40',
+      district: 'Makawao',
+      family_name: 'Alo',
+      gender: 'Women',
+      given_name: 'M.',
+      island: 'Maui',
+      line: '5',
+      page: '207',
+      prefix: 'Mrs'
+    },
+    {
+      age: '17',
+      district: 'Lahaina',
+      family_name: 'Alo',
+      gender: 'Women',
+      given_name: 'Victoria',
+      island: 'Maui',
+      line: '10',
+      page: '177',
+      prefix: 'Miss'
+    },
+    {
+      age: '23',
+      district: 'Lahaina',
+      family_name: 'Alo',
+      gender: 'Women',
+      given_name: 'Alana',
+      island: 'Maui',
+      line: '6',
+      page: '179',
+      prefix: 'Miss'
+    },
+    {
+      age: '17',
+      district: 'Makawao',
+      family_name: 'Alo',
+      gender: 'Women',
+      given_name: 'Amoe',
+      island: 'Maui',
+      line: '6',
+      page: '207',
+      prefix: ''
+    }
+  ]
+}
+```
+
 ## Hasura + postgresql on docker
 
 https://hasura.io/docs/latest/graphql/core/deployment/deployment-guides/docker/

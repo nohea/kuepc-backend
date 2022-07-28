@@ -1,9 +1,9 @@
-# kuepc-backend / Kūʻē Petition directory
+# kuepetitionindex-backend / Kūʻē Petition directory
 
 Index dataset of signers of the Kūʻē Petition. ✊🏽📜
 
 There is a Hasura/PostgreSQL backend app which parsed a CSV format and loaded it into a Hasura graphql engine.
-https://github.com/hawaiiansintech/kuepc-backend
+https://github.com/hawaiiansintech/kuepetitionindex-backend
 
 Now that its available, there could be a front-end lookup tool for querying it by name, etc. and returning page/island/district data. That data could be used to point to the actual pages of the petition. We still need a page number map to available images, but at least the island/district and line numbers are clear. 
 
@@ -16,8 +16,8 @@ The data could also be used to create links in the genealogy interface to specif
 Requires NodeJS v16+
 
 ```
-git clone git@github.com:hawaiiansintech/kuepc-backend.git
-cd ./kuepc-backend
+git clone git@github.com:hawaiiansintech/kuepetitionindex-backend.git
+cd ./kuepetitionindex-backend
 npm install
 cp .env.example .env
 ```
@@ -244,7 +244,7 @@ This command will deploy to your local docker swarm stack, and process the .env 
 
 ```
 cd ./hasura-docker
-docker stack deploy -c <(docker-compose config) kuepc
+docker stack deploy -c <(docker-compose config) kuepetitionindex-backend
 docker service ls
 ```
 

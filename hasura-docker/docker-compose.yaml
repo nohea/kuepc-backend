@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: postgrespassword
     ports: 
       - "5497:5432"
-    container_name: postgres-kuepc-backend
+    container_name: postgres-kuepetitionindex-backend
     deploy:
       placement:
         constraints: [node.role == manager]
@@ -17,7 +17,7 @@ services:
     image: hasura/graphql-engine:v2.8.3
     ports:
     - "8097:8080"
-    container_name: hasura-kuepc-backend
+    container_name: hasura-kuepetitionindex-backend
     depends_on:
     - "postgres"
     restart: always

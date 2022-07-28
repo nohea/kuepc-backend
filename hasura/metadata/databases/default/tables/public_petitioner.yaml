@@ -1,20 +1,20 @@
 table:
-  schema: public
   name: petitioner
+  schema: public
 select_permissions:
   - role: public
     permission:
       columns:
         - pet_id
-        - family_name
-        - given_name
-        - prefix
         - age
-        - page
-        - line
-        - island
         - district
+        - family_name
         - gender
+        - given_name
+        - island
+        - line
+        - page
+        - prefix
         - create_timestamp
       filter: {}
-      limit: 500
+      limit: 20

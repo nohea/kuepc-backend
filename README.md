@@ -211,42 +211,28 @@ result:
   ]
 }
 ```
-
-## Hasura + postgresql on docker
-
-https://hasura.io/docs/latest/graphql/core/deployment/deployment-guides/docker/
-
-quickstart:
-
-```
-cd ./hasura-docker
-{edit .env}
-{edit docker-compose.yml}
-docker-compose up -d
-docker ps
+To run Moʻokūʻauhau backend locally, first get your .env file in order:
+```sh
+cp .env.example .env
 ```
 
-Then you can connect to localhost:port for the Hasura endpoint as well as the postgresql you configured.
-
-The .env under ./hasura-docker can look like this:
-
-```
-HASURA_GRAPHQL_METADATA_DATABASE_URL=postgres://postgres:postgrespassword@postgres:5432/postgres
-PG_DATABASE_URL=postgres://postgres:postgrespassword@postgres:5432/postgres
-HASURA_GRAPHQL_ADMIN_SECRET=gottokeepasecret
-JWT_SECRET_KEY=sharedsecretwithyourauthenticationprovider
-HASURA_GRAPHQL_JWT_SECRET='{"type":"HS256", "key": "sharedsecretwithyourauthenticationprovider"}'
+Then start up local docker containers:
+```sh
+docker compose up
 ```
 
-## deploy to docker swarm
+This will spin up a local hasura graphql engine + postgresql database.
 
-This command will deploy to your local docker swarm stack, and process the .env file to the compose yml.
+Nohea expects most backend devs will be good with this, as it allows for testing 
+database and graphql metadata, migrations, without the need for messing with users. 
 
-```
-cd ./hasura-docker
-docker stack deploy -c <(docker-compose config) kuepetitionindex-backend
-docker service ls
-```
+For the hackathon, we can use the shared users on our nhost.io instance. 
+
+The following endpoints are now exposed (based on your .env):
+- `http://localhost:8097`: Hasura Console (password is password)
+- `http://localhost:8097/v1/graphql`: Hasura GraphQL endpoint
+- `localhost:5497`: PostgreSQL
+
 
 ## Hasura migrations and metadata
 
@@ -277,6 +263,14 @@ apply metadata from files to hasura instance (after viewing diff)
 ```
 hasura metadata --endpoint https://your.hasura.endpoint --admin-secret yoursecret diff
 hasura metadata --endpoint https://your.hasura.endpoint --admin-secret yoursecret apply
+```
+
+load seed file data for testing
+
+note, there are only 100 record in the petitioner seed file. 
+
+```
+hasura seed apply --endpoint https://your.hasura.endpoint --admin-secret yoursecret diff
 ```
 
 ## Other

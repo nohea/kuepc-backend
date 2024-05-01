@@ -1,1 +1,6 @@
-{}
+disabled: false
+rate_limit:
+  global:
+    max_reqs_per_min: 5
+    unique_params: IP
+  per_role: {}

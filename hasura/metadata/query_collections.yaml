@@ -1,1 +1,51 @@
-[]
+- name: allowed-queries
+  definition:
+    queries:
+      - name: get_petitioner_by_name_substring
+        query: |
+          query get_petitioner_by_name_substring ($name: String!) {
+            petitioner(where: {_or:[{family_name:{_ilike:$name}},{given_name:{_ilike:$name}}]}) {
+              pet_id
+              age
+              district
+              family_name
+              gender
+              given_name
+              island
+              line
+              page
+              prefix
+            }
+          }
+      - name: get_petitioner_by_name_search
+        query: |
+          query get_petitioner_by_name_search ($name: String!) {
+            petitioner(where: {_or:[{family_name:{_ilike:$name}},{given_name:{_ilike:$name}}]}) {
+              pet_id
+              age
+              district
+              family_name
+              gender
+              given_name
+              island
+              line
+              page
+              prefix
+            }
+          }
+      - name: get_petitioner_by_name_search_pag
+        query: |
+          query get_petitioner_by_name_search_pag ($name: String!, $limit: Int, $offset: Int) {
+            petitioner(where: {_or:[{family_name:{_ilike:$name}},{given_name:{_ilike:$name}}]}, limit: $limit, offset: $offset, order_by: {family_name:asc,given_name:asc}) {
+              pet_id
+              age
+              district
+              family_name
+              gender
+              given_name
+              island
+              line
+              page
+              prefix
+            }
+          }

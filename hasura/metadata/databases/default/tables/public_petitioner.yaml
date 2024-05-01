@@ -17,4 +17,4 @@ select_permissions:
         - prefix
         - create_timestamp
       filter: {}
-      limit: 20
+      limit: 50

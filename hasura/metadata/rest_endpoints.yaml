@@ -1,1 +1,27 @@
-[]
+- comment: ""
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: get_petitioner_by_name_search
+  methods:
+    - GET
+  name: get_petitioner_by_name_search
+  url: get_petitioner_by_name_search
+- comment: ""
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: get_petitioner_by_name_search_pag
+  methods:
+    - GET
+  name: get_petitioner_by_name_search_pag
+  url: get_petitioner_by_name_search_pag
+- comment: ""
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: get_petitioner_by_name_substring
+  methods:
+    - GET
+  name: get_petitioner_by_name_substring
+  url: get_petitioner_by_name_substring
